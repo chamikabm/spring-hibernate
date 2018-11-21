@@ -1,5 +1,6 @@
-package com.spring.hibernate.entity;
+package com.spring.hibernate;
 
+import com.spring.hibernate.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -28,6 +29,7 @@ public class ReadStudentDemo {
             session.getTransaction().commit();
 
             session = sessionFactory.getCurrentSession();
+            session.beginTransaction();
             Student helloStudent = session.get(Student.class, student2.getId());
             session.getTransaction().commit();
             System.out.println("Hello!! Student " + helloStudent.getFirstName());
