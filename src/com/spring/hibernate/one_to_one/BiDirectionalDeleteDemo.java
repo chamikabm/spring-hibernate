@@ -1,7 +1,7 @@
-package com.spring.hibernate.mappings_demo;
+package com.spring.hibernate.one_to_one;
 
-import com.spring.hibernate.mappings_demo.entity.Instructor;
-import com.spring.hibernate.mappings_demo.entity.InstructorDetail;
+import com.spring.hibernate.one_to_one.entity.Instructor;
+import com.spring.hibernate.one_to_one.entity.InstructorDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -10,7 +10,7 @@ public class BiDirectionalDeleteDemo {
     public static void main(String[] args) {
 
         try(SessionFactory sessionFactory = new Configuration()
-                .configure("com/spring/hibernate/mappings_demo/hibernate.cfg.xml")
+                .configure("com/spring/hibernate/one_to_one/hibernate.cfg.xml")
                 .addAnnotatedClass(Instructor.class)
                 .addAnnotatedClass(InstructorDetail.class)
                 .buildSessionFactory();

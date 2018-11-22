@@ -1,4 +1,4 @@
-package com.spring.hibernate.mappings_demo.entity;
+package com.spring.hibernate.one_to_one.entity;
 
 import javax.persistence.*;
 

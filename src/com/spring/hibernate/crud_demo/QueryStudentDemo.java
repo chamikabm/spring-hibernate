@@ -11,7 +11,7 @@ public class QueryStudentDemo {
     public static void main(String[] args) {
 
         try(SessionFactory sessionFactory = new Configuration()
-                .configure("com/spring/hibernate/mappings_demo/hibernate.cfg.xml")
+                .configure("com/spring/hibernate/one_to_one/hibernate.cfg.xml")
                 .addAnnotatedClass(Student.class)
                 .buildSessionFactory()) {
 
