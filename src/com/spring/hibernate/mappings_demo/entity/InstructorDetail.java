@@ -17,6 +17,17 @@ public class InstructorDetail {
     @Column(name = "hobby")
     private String hobby;
 
+    /*
+     This instructor method is added here because we need to have the bi directional
+     mapping. That is when we are loading the InstructorDetail from the database, we
+     need to fetch the associated instructor. In order to achieve this we need to define instructor
+     attribute here with @OneToOne annotation with mappedBy property, thus this mappedBy property helps
+     hibernate to go to Instructor model and find more details from the how to map the instructor to
+     InstructorDetail by looking at annotations like @JoinColumn.
+     */
+    @OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)
+    private Instructor instructor;
+
     public InstructorDetail(){
         // This default arg constructor is required by hibernate.
     }
@@ -48,6 +59,21 @@ public class InstructorDetail {
 
     public void setHobby(String hobby) {
         this.hobby = hobby;
+    }
+
+    /*
+
+    Add getters and setters for the newly introduced variable instructor which will be used to
+    create the Bi-Directional relationship.
+
+     */
+
+    public Instructor getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
     }
 
     @Override
