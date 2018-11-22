@@ -1,4 +1,4 @@
-package com.spring.hibernate.entity;
+package com.spring.hibernate.crud_demo.entity;
 
 import javax.persistence.*;
 

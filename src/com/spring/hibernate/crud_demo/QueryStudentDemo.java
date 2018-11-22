@@ -1,6 +1,6 @@
-package com.spring.hibernate;
+package com.spring.hibernate.crud_demo;
 
-import com.spring.hibernate.entity.Student;
+import com.spring.hibernate.crud_demo.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -11,7 +11,7 @@ public class QueryStudentDemo {
     public static void main(String[] args) {
 
         try(SessionFactory sessionFactory = new Configuration()
-                .configure("hibernate.cfg.xml")
+                .configure("com/spring/hibernate/mappings_demo/hibernate.cfg.xml")
                 .addAnnotatedClass(Student.class)
                 .buildSessionFactory()) {
 
