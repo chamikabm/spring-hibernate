@@ -7,7 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class CreateICoursesDemo {
+public class GetInstructorDemo {
 
     public static void main(String[] args) {
 
@@ -26,19 +26,7 @@ public class CreateICoursesDemo {
             int instructorId = 1;
             Instructor instructor = session.get(Instructor.class, instructorId);
 
-            // Create some courses.
-            Course course1 = new Course("physics");
-            Course course2 = new Course("maths");
-
-            // Add courses to instructor.
-            instructor.addCourse(course1);
-            instructor.addCourse(course2);
-
-            // Save courses
-            session.save(course1);
-            session.save(course2);
-
-            // We don`t need to save the instructor as this is a bi-directional relationship.
+            System.out.println(instructor.getCourses());
 
             session.getTransaction().commit();
         }
