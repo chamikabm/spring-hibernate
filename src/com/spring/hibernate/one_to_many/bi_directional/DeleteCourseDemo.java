@@ -11,7 +11,7 @@ public class DeleteCourseDemo {
 
     public static void main(String[] args) {
         try(SessionFactory sessionFactory = new Configuration()
-                .configure("com/spring/hibernate/one_to_one/hibernate.cfg.xml")
+                .configure("com/spring/hibernate/one_to_many/hibernate.cfg.xml")
                 .addAnnotatedClass(Instructor.class)
                 .addAnnotatedClass(InstructorDetail.class)
                 .addAnnotatedClass(Course.class)
