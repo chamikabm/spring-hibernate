@@ -1,6 +1,8 @@
 package com.spring.hibernate.many_to_many.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity(name = "student")
 public class Student {
@@ -18,6 +20,20 @@ public class Student {
 
     @Column(name = "email")
     private String email;
+
+    @ManyToMany(
+            fetch =FetchType.LAZY,
+            cascade = {
+                    CascadeType.DETACH, CascadeType.MERGE,
+                    CascadeType.PERSIST, CascadeType.REFRESH
+            }
+    )
+    @JoinTable(
+            name = "course_student",
+            joinColumns = @JoinColumn(name = "student_id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id")
+    )
+    private List<Course> courses;
 
     public Student() {
         // This is a default no arg constructor which is created as required by the hibernate.
@@ -59,5 +75,32 @@ public class Student {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
+    }
+
+    public List<Course> addCourse(Course course) {
+        if(courses == null) {
+            courses = new ArrayList<>();
+        }
+
+        courses.add(course);
+        return courses;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }

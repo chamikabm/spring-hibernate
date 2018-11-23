@@ -23,7 +23,7 @@ public class Course {
     @JoinColumn(name = "instructor_id")
     private Instructor instructor;
 
-    @ManyToOne(
+    @ManyToMany(
             fetch =FetchType.LAZY,
             cascade = {
                     CascadeType.DETACH, CascadeType.MERGE,
